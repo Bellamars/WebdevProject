@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Realty Page</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5e6d3, #e0c3a3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px;
+            background-color: #8b5e3c;
+            color: white;
+        }
+
+        .nav {
+            text-align: center;
+            background-color: #5c3d2e;
+            padding: 15px;
+        }
+
+        .nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            background-color: rgba(255,255,255,0.9);
+            margin: 30px;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #5c3d2e;
+        }
+
+        .video-section, .tableau-section {
+            background-color: rgba(255,255,255,0.9);
+            margin: 30px;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        iframe {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 class="intro-text">🏡 Book a Vacation in Your Dream Cabin</h1>
+        <p>Cozy • Peaceful • Nature Escape 🌲</p>
+    </div>
+
+    <!-- CLEAN NAV BAR -->
+    <div class="nav">
+        <a href="../index.html">Home</a>
+        <a href="RESUME.HTML">Resume</a>
+        <!-- <a href="#">About Me</a> -->
+        <a href="Realty page.html">Cabins</a>
+        <a href="joke-app.html">Jokes</a>
+        <a href="nashville-hot-chicken-game.html">Game</a>
+    </div>
+
+    <div class="content">
+        <h2>🌲 Why Choose a Cabin?</h2>
+        <p class="quote">"Wake up to fresh mountain air and peaceful surroundings."</p>
+        <p class="quote">"Cozy nights by the fire create unforgettable memories."</p>
+        <p class="quote">"Escape the noise and reconnect with nature."</p>
+    </div>
+
+    <div class="video-section">
+        <h2>🎥 Watch This Video</h2>
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/5CZrm4p_Sxs"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="tableau-section">
+        <h2>📊 Interactive Tableau Visualization</h2>
+
+        <div class='tableauPlaceholder' id='viz1776279256585' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Dashboard 1'
+                        src='https://public.tableau.com/static/images/P2/P23PS4SHK/1_rss.png'
+                        style='border: none' />
+                </a>
+            </noscript>
+
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https://public.tableau.com/' />
+                <param name='embed_code_version' value='3' />
+                <param name='path' value='shared/P23PS4SHK' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image'
+                    value='https://public.tableau.com/static/images/P2/P23PS4SHK/1.png' />
+            </object>
+        </div>
+
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1776279256585');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+
+            vizElement.style.width = '100%';
+            vizElement.style.height = '600px';
+
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Joke Generator</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6f0;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #ff69b4;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #ff1493;
+    }
+
+    #joke {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+<a href="../Index.html" class="back-btn">⬅ Back to Home</a>
+  <div class="box">
+    <h1>😂 Joke Generator</h1>
+
+    <button onclick="generateJoke('funny')">Get a Joke</button>
+
+    <p id="joke">Click the button to see a joke!</p>
+  </div>
+
+  <script>
+  const jokes = {
+    funny: [
+      "Why don’t scientists trust atoms? Because they make up everything.",
+      "Why did the golfer bring two pairs of pants? In case he got a hole in one.",
+      "Why did the student eat his homework? Because the teacher said it was a piece of cake.",
+      "Why did the bicycle fall over? It was two-tired."
+    ],
+
+    dad: [
+      "I only know 25 letters of the alphabet. I don’t know y.",
+      "I’m reading a book about anti-gravity. It’s impossible to put down.",
+      "Why don’t eggs tell jokes? They’d crack each other up."
+    ],
+
+    realEstate: [
+      "Why did the buyer bring a ladder to the showing? They heard the prices were through the roof.",
+      "Why was the mortgage so calm? It has a fixed rate personality.",
+      "Why did the real estate agent go broke? Too many open houses, not enough closed ones."
+    ],
+
+    dark: [
+      "Why do corporations love buzzwords? Because 'we have no idea' doesn't scale.",
+      "My memory is so bad, I forgot I already made this joke.",
+      "I used to play piano by ear… now I use my hands."
+    ]
+  };
+
+  function generateJoke(type) {
+    const jokeList = jokes[type];
+    const randomIndex = Math.floor(Math.random() * jokeList.length);
+    document.getElementById("joke").innerText = jokeList[randomIndex];
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nashville Hot Chicken Game</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    }
+
+    h1 {
+      margin: 10px;
+    }
+
+    #score, #spice {
+      font-size: 18px;
+      margin: 5px;
+    }
+
+     #gameArea {
+        position: relative;
+        width: 100vw;
+        height: 85vh;
+        background-image: url("../images/nashville-hot-chicken-game.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+    #bucket {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      width: 90px;
+      height: 60px;
+      background: #8b4513;
+      border-radius: 10px;
+      transform: translateX(-50%);
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chicken {
+      position: absolute;
+      top: 0;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+    <a href="../Index.html" class="back-btn">⬅ Back to Home</a>
+  🎸 🤠 👢 🍗 🌶️ 🔥 🎸 🤠 👢 🍗 🌶️ 🔥
+
+
+  <h1>🍗 Nashville Hot Chicken Catch Game 🔥</h1>
+  <p>🏔️ Tennessee Arcade Edition • 🎸 Music City Challenge • 🌶️</p>
+
+  <p id="score">Score: 0</p>
+  <p id="spice">Spice Level: Mild 🌶️</p>
+
+  <div id="gameArea">
+    <div id="bucket">🪣</div>
+  </div>
+
+  <script>
+    let score = 0;
+
+    const bucket = document.getElementById("bucket");
+    const gameArea = document.getElementById("gameArea");
+
+    const items = ["🍗", "🌶️", "🔥🍗", "🐔", "🥵🍗"];
+
+    // Move bucket with mouse
+    document.addEventListener("mousemove", function(e) {
+      bucket.style.left = e.clientX + "px";
+    });
+
+    function updateSpice() {
+      if (score < 5) {
+        document.getElementById("spice").innerText = "Spice Level: Mild 🌶️";
+      } else if (score < 10) {
+        document.getElementById("spice").innerText = "Spice Level: Hot 🌶️🌶️";
+      } else {
+        document.getElementById("spice").innerText = "Spice Level: NASHVILLE FIRE 🔥🔥🔥";
+      }
+    }
+
+    function spawnChicken() {
+      let chicken = document.createElement("div");
+      chicken.classList.add("chicken");
+
+      chicken.innerHTML = items[Math.floor(Math.random() * items.length)];
+
+      let x = Math.random() * window.innerWidth;
+      chicken.style.left = x + "px";
+
+      gameArea.appendChild(chicken);
+
+      let fall = 0;
+
+      let drop = setInterval(() => {
+        fall += 5;
+        chicken.style.top = fall + "px";
+
+        let bucketRect = bucket.getBoundingClientRect();
+        let chickenRect = chicken.getBoundingClientRect();
+
+        // collision (caught)
+        if (
+          chickenRect.bottom >= bucketRect.top &&
+          chickenRect.left >= bucketRect.left &&
+          chickenRect.right <= bucketRect.right
+        ) {
+          score++;
+          document.getElementById("score").innerText = "Score: " + score;
+          updateSpice();
+
+          chicken.remove();
+          clearInterval(drop);
+        }
+
+        // missed
+        if (fall > window.innerHeight) {
+          chicken.remove();
+          clearInterval(drop);
+        }
+
+      }, 20);
+    }
+
+    setInterval(spawnChicken, 900);
+  </script>
+
+
+</body>
+</html>
